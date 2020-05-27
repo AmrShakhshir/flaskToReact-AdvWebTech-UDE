@@ -5,8 +5,9 @@ from flask import Flask,request,jsonify,json
 from bson.json_util import dumps, RELAXED_JSON_OPTIONS
 
 # Mongodb Connection
-app.config["MONGO_URI"] = "mongodb://localhost:27017/usersDatabase"
-app.config["MONGO_DBNAME"] ='userCollection'
+app.config["MONGO_URI"] = "mongodb+srv://flaskmongo:amSh_2921@advwebtech-98vlb.mongodb.net/test?retryWrites=true&w=majority"
+app.config['MONGO_DBNAME'] = 'flaskmongo'
+app.config['SECRET_KEY'] = 'secret_key'
 mongo = PyMongo(app)
 db = mongo.db
 col = mongo.db["userCollection"]
