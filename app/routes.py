@@ -10,7 +10,7 @@ app.config['MONGO_DBNAME'] = 'flaskmongo'
 app.config['SECRET_KEY'] = 'secret_key'
 mongo = PyMongo(app)
 db = mongo.db
-col = mongo.db["test.test"]
+col = mongo.db["test"]
 
 
 @app.route('/')
