@@ -31,7 +31,6 @@ def login():
     
     # return req['firstname']
     if q is None :
-        user.insert({'email' : email, 'password' : password})
         return jsonify({"login":"Login Fail! Please check your email or password"})
 
     else :
