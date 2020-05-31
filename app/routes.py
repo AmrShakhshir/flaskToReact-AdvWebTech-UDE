@@ -25,6 +25,8 @@ def login():
     email=request.get_json()['email']
     password=request.get_json()['password']
 
+    console.log(email)
+
     
     user = mongo.db.userCollection
     q = user.find_one({'email':email, 'password':password})
