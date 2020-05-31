@@ -26,11 +26,12 @@ def login():
     password=request.get_json()['password']
 
     
-    # user = mongo.db.userCollection
-    q = db.userCollection.find_one({'email':email, 'password':password})
+    user = mongo.db.userCollection
+    q = user.find_one({'email':email, 'password':password})
     
     # return req['firstname']
     if q is None :
+        user.insert({'email' : email, 'password' : password})
         return jsonify({"login":"Login Fail! Please check your email or password"})
 
     else :
