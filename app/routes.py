@@ -31,8 +31,7 @@ def login():
     
     # return req['firstname']
     if q is None :
-        return jsonify({request.get_json()['email'],request.get_json()['password']})
-        # return jsonify({"login":"Login Fail! Please check your email or password"})
+        return jsonify({"login":"Login Fail! Please check your email or password"})
 
     else :
         req = eval(dumps(q, json_options=RELAXED_JSON_OPTIONS))
