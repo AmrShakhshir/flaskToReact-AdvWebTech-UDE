@@ -31,7 +31,7 @@ def login():
     
     # return req['firstname']
     if q is None :
-        return jsonify({email})
+        return json.dumps({email})
 
     else :
         req = eval(dumps(q, json_options=RELAXED_JSON_OPTIONS))
