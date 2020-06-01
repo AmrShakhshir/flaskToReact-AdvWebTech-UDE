@@ -36,7 +36,7 @@ def login():
 
     else :
         req = eval(dumps(q, json_options=RELAXED_JSON_OPTIONS))
-        return jsonify({"login":"Login Successfully!","firstname": req})
+        return jsonify({"login":"Login Successfully!","firstname": q})
     
 if __name__ == '__main__':
     app.run(debug=True)
