@@ -25,20 +25,17 @@ def login():
     email=request.get_json()['email']
     password=request.get_json()['password']
 
-    console.log(email)
-
     
     user = mongo.db.userCollection
     q = user.find_one({'email':email, 'password':password})
     
     # return req['firstname']
     if q is None :
-        return jsonify({"login":"Login Fail! Please check your email or password"})
+        return jsonify({email})
 
     else :
         req = eval(dumps(q, json_options=RELAXED_JSON_OPTIONS))
         return jsonify({"login":"Login Successfully!","firstname": req['firstname'] ,"lastname": req['lastname']})
-
     
 if __name__ == '__main__':
     app.run(debug=True)
