@@ -27,11 +27,11 @@ def login():
 
     
     user = mongo.db.userCollection
-    q = user.find_one({'email':email, 'password':password})
+    q = user.find_one({'email':"advwebtech", 'password':"123456"})
     
     # return req['firstname']
     if q is None :
-        return json.dumps(password)
+        return jsonify({"login":"Login Fail! Please check your email or password"})
 
     else :
         req = eval(dumps(q, json_options=RELAXED_JSON_OPTIONS))
