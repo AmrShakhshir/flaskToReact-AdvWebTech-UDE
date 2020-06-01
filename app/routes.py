@@ -5,7 +5,7 @@ from flask import Flask,request,jsonify,json
 from bson.json_util import dumps, RELAXED_JSON_OPTIONS
 
 # Mongodb Connection
-app.config["MONGO_URI"] = "mongodb://flaskmongo:123456_UDE@advwebtech-shard-00-00-98vlb.mongodb.net:27017,advwebtech-shard-00-01-98vlb.mongodb.net:27017,advwebtech-shard-00-02-98vlb.mongodb.net:27017/test?ssl=true&replicaSet=AdvWebTech-shard-0&authSource=admin&retryWrites=true&w=majority"
+app.config["MONGO_URI"] = "MONGODB_URI"
 app.config['MONGO_DBNAME'] = 'usersDatabase'
 app.config['SECRET_KEY'] = 'secret_key'
 mongo = PyMongo(app)
@@ -36,7 +36,7 @@ def login():
 
     else :
         req = eval(dumps(q, json_options=RELAXED_JSON_OPTIONS))
-        return jsonify({"login":"Login Successfully!","firstname": req})
+        return jsonify({"login":"Login Successfully!","firstname": req['firstname'] ,"lastname": req['lastname']})
     
 if __name__ == '__main__':
     app.run(debug=True)
