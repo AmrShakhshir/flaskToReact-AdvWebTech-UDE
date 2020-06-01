@@ -1,3 +1,4 @@
+import os
 from app import app
 from flask_pymongo import PyMongo
 from pymongo import MongoClient
@@ -5,7 +6,7 @@ from flask import Flask,request,jsonify,json
 from bson.json_util import dumps, RELAXED_JSON_OPTIONS
 
 # Mongodb Connection
-app.config["MONGO_URI"] = "MONGODB_URI"
+app.config["MONGO_URI"] = os.environ.get("MONGODB_URI")
 app.config['MONGO_DBNAME'] = 'usersDatabase'
 app.config['SECRET_KEY'] = 'secret_key'
 mongo = PyMongo(app)
