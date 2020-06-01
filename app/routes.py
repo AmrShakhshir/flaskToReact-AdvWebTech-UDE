@@ -27,7 +27,7 @@ def login():
 
     
     user = mongo.db.userCollection
-    q = user.find_one({'email':"advwebtech@hotmail.com", 'password':"123456"})
+    q = user.find({'email':'advwebtech@hotmail.com', 'password':'123456'})
     
     # return req['firstname']
     if q is None :
