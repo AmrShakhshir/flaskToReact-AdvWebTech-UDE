@@ -25,9 +25,10 @@ def login():
     email=request.get_json()['email']
     password=request.get_json()['password']
 
+
     
     user = mongo.db.userCollection
-    q = user.find({'email':'advwebtech@hotmail.com', 'password':'123456'})
+    q = user.find({'email':email, 'password':password})
     
     # return req['firstname']
     if q is None :
@@ -35,7 +36,7 @@ def login():
 
     else :
         req = eval(dumps(q, json_options=RELAXED_JSON_OPTIONS))
-        return jsonify({"login":"Login Successfully!","firstname": req[2] ,"lastname": req[3]})
+        return jsonify({"login":"Login Successfully!","firstname": req['firstname'] ,"lastname": req['lastname']})
     
 if __name__ == '__main__':
     app.run(debug=True)
